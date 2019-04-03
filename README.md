@@ -1,3 +1,5 @@
+# React Application Utilizing GraphQL, Apollo and Apollo Hooks, and React Hooks
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

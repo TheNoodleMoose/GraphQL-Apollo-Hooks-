@@ -5,8 +5,9 @@ import styled from "@emotion/styled";
 import { useQuery } from "react-apollo-hooks";
 import { GET_CURRENT_TAB } from "./GraphQL/Queries/index";
 
-import Tabs from "./tabs";
+import Tabs from "./Tabs/tabs";
 
+// Function that grabs the current tab and then renders that
 const GetCurrentTab = () => {
   const {
     data: {
@@ -18,6 +19,7 @@ const GetCurrentTab = () => {
 };
 
 const App = () => {
+  // React Hooks for creating a clicked state for rending Tab Number
   const [clicked, setClicked] = useState(false);
 
   const RatesButton = styled.button`
@@ -43,6 +45,7 @@ const App = () => {
           </span>
           <br />
           <Tabs />
+          {/* Create a Spring Object for simple color animation, if clicked is either true or false a different color will be rendered */}
           <Spring to={{ background: clicked ? "#68e879" : "#e86868" }}>
             {props => (
               <RatesButton style={props} onClick={() => setClicked(!clicked)}>
@@ -50,6 +53,7 @@ const App = () => {
               </RatesButton>
             )}
           </Spring>
+          {/* If Clicked is true render a div with the current tab */}
           {clicked ? <GetCurrentTab /> : null}
         </h2>
       </div>
