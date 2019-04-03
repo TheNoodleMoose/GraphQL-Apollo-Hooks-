@@ -1,28 +1,60 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import { Spring } from "react-spring/renderprops";
+import styled from "@emotion/styled";
+import { useQuery } from "react-apollo-hooks";
+import { GET_CURRENT_TAB } from "./GraphQL/Queries/index";
 
-class App extends Component {
-  render() {
-    return (
+import Tabs from "./tabs";
+
+const GetCurrentTab = () => {
+  const {
+    data: {
+      apolloClient: { currentTab }
+    }
+  } = useQuery(GET_CURRENT_TAB);
+
+  return <div>{currentTab}</div>;
+};
+
+const App = () => {
+  const [clicked, setClicked] = useState(false);
+
+  const RatesButton = styled.button`
+    border-radius: 5px;
+    width: 100px;
+  `;
+
+  const Container = styled.div`
+    margin: 0 auto;
+    display: flex;
+    width: 800px;
+    flex-direction: column;
+    jusify-content: center;
+  `;
+
+  return (
+    <Container>
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <h2>
+          My First Apollo app!{" "}
+          <span role="img" aria-label="rocket">
+            🚀
+          </span>
+          <br />
+          <Tabs />
+          <Spring to={{ background: clicked ? "#68e879" : "#e86868" }}>
+            {props => (
+              <RatesButton style={props} onClick={() => setClicked(!clicked)}>
+                Click Me
+              </RatesButton>
+            )}
+          </Spring>
+          {clicked ? <GetCurrentTab /> : null}
+        </h2>
       </div>
-    );
-  }
-}
+    </Container>
+  );
+};
 
 export default App;
