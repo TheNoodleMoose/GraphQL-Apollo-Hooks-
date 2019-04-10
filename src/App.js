@@ -3,7 +3,7 @@ import "./App.css";
 import { Spring } from "react-spring/renderprops";
 import styled from "@emotion/styled";
 import { useQuery } from "react-apollo-hooks";
-import { GET_CURRENT_TAB } from "./GraphQL/Queries/index";
+import { GET_CURRENT_TAB, GET_CURRENCY } from "./GraphQL/Queries";
 
 import Tabs from "./Tabs/tabs";
 
@@ -16,6 +16,24 @@ const GetCurrentTab = () => {
   } = useQuery(GET_CURRENT_TAB);
 
   return <div>{currentTab}</div>;
+};
+
+const GetCurrency = () => {
+  const { data, loading, error } = useQuery(GET_CURRENCY);
+
+  if (loading) return <div>Loading...</div>;
+
+  if (error) return <div>Error! {error.message}</div>;
+
+  return (
+    <React.Fragment>
+      {data.rates.map(({ currency, rate }) => (
+        <p key={currency}>
+          {currency}: {rate}
+        </p>
+      ))}
+    </React.Fragment>
+  );
 };
 
 const App = () => {
@@ -56,6 +74,7 @@ const App = () => {
           {/* If Clicked is true render a div with the current tab */}
           {clicked ? <GetCurrentTab /> : null}
         </h2>
+        <GetCurrency />
       </div>
     </Container>
   );
