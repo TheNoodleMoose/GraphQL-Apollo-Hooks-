@@ -1,6 +1,7 @@
 import gql from "graphql-tag";
 
 // Query for grabbing name of clicked tab and updating the currentTab value with that new value
+
 export default (_, { name }, { cache }) => {
   const query = gql`
     query GetTabName {

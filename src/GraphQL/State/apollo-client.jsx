@@ -8,7 +8,7 @@ import { createHttpLink } from "apollo-link-http";
 
 // Define our new HttpLink for Apollo
 const httplink = createHttpLink({
-  uri: "https://48p1r2roz4.sse.codesandbox.io"
+  uri: "https://swapi.apis.guru"
 });
 
 // Create our new cache from InMemoryCache

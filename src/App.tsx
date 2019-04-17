@@ -9,11 +9,9 @@ import Tabs from "./Tabs/tabs";
 
 // Function that grabs the current tab and then renders that
 const GetCurrentTab = () => {
-  const {
-    data: {
-      apolloClient: { currentTab }
-    }
-  } = useQuery(GET_CURRENT_TAB);
+  const { data } = useQuery(GET_CURRENT_TAB);
+
+  const currentTab: string = data.apolloClient.currentTab;
 
   return <div>{currentTab}</div>;
 };
@@ -27,10 +25,8 @@ const GetCurrency = () => {
 
   return (
     <React.Fragment>
-      {data.rates.map(({ currency, rate }) => (
-        <p key={currency}>
-          {currency}: {rate}
-        </p>
+      {data.allFilms.films.map((films: { title: string }) => (
+        <p key={films.title}>{films.title}</p>
       ))}
     </React.Fragment>
   );
