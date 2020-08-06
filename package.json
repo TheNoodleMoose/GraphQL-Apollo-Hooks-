@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@emotion/core": "^10.0.17",
-    "@emotion/styled": "^10.0.10",
+    "@emotion/styled": "^10.0.27",
     "@types/jest": "^24.0.11",
     "@types/node": "^11.13.4",
     "@types/react": "^16.8.13",
