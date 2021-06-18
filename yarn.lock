@@ -1111,15 +1111,10 @@
   dependencies:
     "@types/jest-diff" "*"
 
-"@types/node@*":
-  version "11.10.5"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-11.10.5.tgz#fbaca34086bdc118011e1f05c47688d432f2d571"
-  integrity sha512-DuIRlQbX4K+d5I+GMnv+UfnGh+ist0RdlvOp+JZ7ePJ6KQONCFQv/gKYSU1ZzbVdFSUCKZOltjmpFAGGv5MdYA==
-
-"@types/node@^11.13.4":
-  version "11.13.4"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-11.13.4.tgz#f83ec3c3e05b174b7241fadeb6688267fe5b22ca"
-  integrity sha512-+rabAZZ3Yn7tF/XPGHupKIL5EcAbrLxnTr/hgQICxbeuAfWtT0UZSfULE+ndusckBItcv4o6ZeOJplQikVcLvQ==
+"@types/node@*", "@types/node@^15.12.3":
+  version "15.12.3"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-15.12.3.tgz#2817bf5f25bc82f56579018c53f7d41b1830b1af"
+  integrity sha512-SNt65CPCXvGNDZ3bvk1TQ0Qxoe3y1RKH88+wZ2Uf05dduBCqqFQ76ADP9pbT+Cpvj60SkRppMCh2Zo8tDixqjQ==
 
 "@types/prop-types@*":
   version "15.7.0"
